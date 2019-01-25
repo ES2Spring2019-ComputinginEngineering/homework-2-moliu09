@@ -28,7 +28,7 @@ def intersectionoftwolines_x(m1, b1, m2, b2):
     # y = (m1 * x) + b1 and y = (m2 * x) + b2 intersect.
 
 
-    x = 0 #replace this with your calculation for x
+    x = (b2-b1)/(m1-m2) #replace this with your calculation for x
     return x
 
 def intersectionoftwolines_y(m1, b1, m2, b2):
@@ -36,7 +36,7 @@ def intersectionoftwolines_y(m1, b1, m2, b2):
     # y = (m1 * x) + b1 and y = (m2 * x) + b2 intersect.
 
 
-    y = 0 #replace this with your calculation for y
+    y = m1*(b2-b1)/(m1-m2)+b1 #replace this with your calculation for y
     return y
 
 
@@ -45,7 +45,7 @@ def distancebetweenpoints(x1, y1, x2, y2):
     # (x1, y1) and (x2, y2).
 
 
-    distance = 0 # replace with your calculation for distance
+    distance = math.sqrt((x2-x1)**2+(y2-y1)**2) # replace with your calculation for distance
     return distance
 
 def heronsformula(a, b, c):
@@ -53,8 +53,8 @@ def heronsformula(a, b, c):
     # You may want to look up Heron's formula online.
 
 
-
-    area = 0 #replace this with your calculation for area
+    s = (a+b+c)/2
+    area = math.sqrt(s*(s-a)*(s-b)*(s-c)) #replace this with your calculation for area
     return area
 
 def areaofatriangle(m1, b1, m2, b2, m3, b3):
@@ -62,8 +62,11 @@ def areaofatriangle(m1, b1, m2, b2, m3, b3):
     #triangle when the three sides are described by three linear equations
     #y = (m1 * x) + b1;  y = (m2 * x) + b2; and y = (m3 * x) + b3
 
-
-    area = 0 #replace this with your calculation for area
+    y1 = m1*(b2-b1)/(m1-m2)+b1
+    y2 = m2*(b2-b1)/(m1-m2)+b2
+    y3 = m3*(b2-b1)/(m1-m2)+b3
+    s = (y1+y2+y3)/2
+    area = math.sqrt(s*(s-y1)*(s-y2)*(s-y3)) #replace this with your calculation for area
     return area
 
 

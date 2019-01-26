@@ -54,7 +54,7 @@ def heronsformula(a, b, c):
 
 
     s = (a+b+c)/2
-    area = math.sqrt(s*(s-a)*(s-b)*(s-c)) #replace this with your calculation for area
+    area = math.sqrt(abs(s*(s-a)*(s-b)*(s-c))) #replace this with your calculation for area
     return area
 
 def areaofatriangle(m1, b1, m2, b2, m3, b3):
@@ -62,11 +62,16 @@ def areaofatriangle(m1, b1, m2, b2, m3, b3):
     #triangle when the three sides are described by three linear equations
     #y = (m1 * x) + b1;  y = (m2 * x) + b2; and y = (m3 * x) + b3
 
-    y1 = m1*(b2-b1)/(m1-m2)+b1
-    y2 = m2*(b2-b1)/(m1-m2)+b2
-    y3 = m3*(b2-b1)/(m1-m2)+b3
-    s = (y1+y2+y3)/2
-    area = math.sqrt(s*(s-y1)*(s-y2)*(s-y3)) #replace this with your calculation for area
+    x1 = intersectionoftwolines_x(m1, b1, m2, b2)
+    x2 = intersectionoftwolines_x(m1, b1, m3, b3)
+    x3 = intersectionoftwolines_x(m2, b2, m3, b3)
+    y1 = intersectionoftwolines_y(m1, b1, m2, b2)
+    y2 = intersectionoftwolines_y(m1, b1, m3, b3)
+    y3 = intersectionoftwolines_y(m2, b2, m3, b3)
+    a = distancebetweenpoints(x1, y1, x2, y2)
+    b = distancebetweenpoints(x1, y1, x3, y3)
+    c = distancebetweenpoints(x2, y2, x3, y3)
+    area = heronsformula(a, b, c) #replace this with your calculation for area
     return area
 
 

@@ -54,7 +54,7 @@ def heronsformula(a, b, c):
 
 
     s = (a+b+c)/2
-    area = math.sqrt(abs(s*(s-a)*(s-b)*(s-c))) #replace this with your calculation for area
+    area = math.sqrt(s*(s-a)*(s-b)*(s-c)) #replace this with your calculation for area
     return area
 
 def areaofatriangle(m1, b1, m2, b2, m3, b3):
